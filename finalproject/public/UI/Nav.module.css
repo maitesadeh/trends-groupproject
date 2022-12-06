@@ -1,0 +1,35 @@
+.navbar {
+  width: 100%;
+  height: 70px;
+  background: rgba(255, 219, 221, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.navbar h1 a {
+  font-size: 2rem;
+  text-decoration: none;
+}
+.navbar a {
+  color: white;
+}
+.navbar ul {
+  display: flex;
+  justify-content: space-between;
+  font-style: italic;
+}
+.navbar ul li {
+  list-style: none;
+  margin-left: 2rem;
+}
+.navbar ul a {
+  font-size: 2rem;
+  text-decoration: none;
+}
+.navbar li a:hover {
+  color: red;
+}
