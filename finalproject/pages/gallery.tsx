@@ -7,7 +7,7 @@ const gallery = () => {
       <Nav></Nav>
       <div className={styles.catalog}>
         <div className={styles.card}>
-          <img src="/images/cascadilla.jpg"/>
+          <img src="https://i0.wp.com/lh4.ggpht.com/_-rpMcGsgiFQ/SgG2Frp0d5I/AAAAAAAADMw/qSGvxSh-Z9M/s512/DSC_0036.JPG"/>
           <div className={styles.content}>
             <h2 className={styles.name}>Cascadilla Gorge</h2>
             <p className={styles.author}>by <strong>Urchin</strong></p>
@@ -15,7 +15,7 @@ const gallery = () => {
           </div>
         </div>
         <div className={styles.card}>
-          <img src="/images/cascadilla.jpg"/>
+          <img src="https://i0.wp.com/lh4.ggpht.com/_-rpMcGsgiFQ/SgG2Frp0d5I/AAAAAAAADMw/qSGvxSh-Z9M/s512/DSC_0036.JPG"/>
           <div className={styles.content}>
             <h2 className={styles.name}>Cascadilla Gorge</h2>
             <p className={styles.author}>by <strong>Urchin</strong></p>
@@ -23,7 +23,7 @@ const gallery = () => {
           </div>
         </div>
         <div className={styles.card}>
-          <img src="/images/cascadilla.jpg"/>
+          <img src="https://i0.wp.com/lh4.ggpht.com/_-rpMcGsgiFQ/SgG2Frp0d5I/AAAAAAAADMw/qSGvxSh-Z9M/s512/DSC_0036.JPG"/>
           <div className={styles.content}>
             <h2 className={styles.name}>Cascadilla Gorge</h2>
             <p className={styles.author}>by <strong>Urchin</strong></p>
@@ -31,7 +31,7 @@ const gallery = () => {
           </div>
         </div>
         <div className={styles.card}>
-          <img src="/images/cascadilla.jpg"/>
+          <img src="https://i0.wp.com/lh4.ggpht.com/_-rpMcGsgiFQ/SgG2Frp0d5I/AAAAAAAADMw/qSGvxSh-Z9M/s512/DSC_0036.JPG"/>
           <div className={styles.content}>
             <h2 className={styles.name}>Cascadilla Gorge</h2>
             <p className={styles.author}>by <strong>Urchin</strong></p>
