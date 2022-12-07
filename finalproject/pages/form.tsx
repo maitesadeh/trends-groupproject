@@ -1,5 +1,7 @@
 import Nav from "../public/UI/Nav";
 import styles from "../styles/Favorites.module.css"
+import AddToForm from "./addtoform";
+
 
 const form = () => {
     return (
@@ -9,6 +11,7 @@ const form = () => {
           <h2>Photographer</h2>
           <h2>Description</h2>
           <h2>Upload Picture</h2>
+          <AddToForm/>
         </div>
       </div>
     );
