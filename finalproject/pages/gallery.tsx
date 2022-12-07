@@ -6,6 +6,7 @@ const gallery = () => {
 	return (
 		<section className={styles.main}>
 			<Nav></Nav>
+			<h2 className={styles.wel}>Welcome to Gallery</h2>
 			<div className={styles.catalog}>
 				<a href={"/detail"}>
 					<div className={styles.card}>
