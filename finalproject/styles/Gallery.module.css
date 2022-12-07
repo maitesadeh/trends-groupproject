@@ -1,0 +1,19 @@
+.catalog {
+    margin-top: 130px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+}
