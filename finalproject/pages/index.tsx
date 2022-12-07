@@ -1,9 +1,19 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 import Button from "../public/UI/Button";
 import Nav from "../public/UI/Nav";
-import { app } from "../public/firebase";
+import { app, db } from "../public/firebase";
+import {
+  onSnapshot,
+  query,
+  collection,
+  getFirestore,
+  where,
+  getDoc,
+  getDocs,
+  addDoc,
+} from "firebase/firestore";
 
 import {
   getAuth,
@@ -30,17 +40,54 @@ export default function Home() {
         const name = result.user.displayName + "";
         const profilePic = result.user.photoURL + "";
 
-        setUser({ ...user, username: name, picture: profilePic });
+        // setUser({ ...user, username: name, picture: profilePic });
 
         setIsSignedIn(true);
+        console.log(name);
+
+        const taskQuery = query(
+          collection(db, "firstuser"),
+          where("username", "==", name)
+        );
+        console.log(taskQuery);
       })
       .catch((error) => alert(error));
   };
 
   const signOutFromApp = () => {
-    // auth.signOut();
+    // auth.signOut();q
     // signOut(auth).then((res) => console.log(res));
   };
+  if (isSignedIn) {
+    const userRef = collection(db, "firstuser");
+
+    addDoc(userRef, user).then(() => null);
+    console.log(user);
+  }
+
+  const userRef = collection(db, "firstuser");
+  const userQuery = query(userRef);
+  useEffect(() => {
+    // TODO: Update `tasks` state using snapshot (uncomment the following)
+    const unsubscribe = onSnapshot(userQuery, (querySnapshot) => {
+      // let todos: TaskWithId[] = []
+      // querySnapshot.docs.forEach((doc) => {
+      //   todos.push({
+      //     text: doc.data().text,
+      //     checked: doc.data().checked,
+      //     id: doc.data().id,
+      //   })
+      // })
+      const todoData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      // console.log(todoData);
+
+      // setUser({...user, images :[...todoData]})
+    });
+    return unsubscribe;
+  }, []);
 
   return (
     <div className={styles.container}>
