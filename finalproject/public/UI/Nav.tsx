@@ -3,18 +3,18 @@ import styles from "./Nav.module.css";
 
 const Nav = () => {
   return (
-    <nav className={styles.navbar}>
-      <h1>
-        <Link href="/">JUD</Link>
-      </h1>
-      <ul>
-        <li>
-          <Link href="gallery"> Gallery</Link>
-        </li>
-        <li>
-          <Link href="favorites">Favorites</Link>
-        </li>
-      </ul>
+    <nav className={styles.navbar}>    
+        <h1>
+          <Link href="/">JUD</Link>
+        </h1>
+        <div className="pages">
+          <div className="item">
+            <Link href="gallery"> Gallery</Link>
+          </div>
+          <div className="item">
+            <Link href="favorites">Favorites</Link>
+          </div>
+        </div>
     </nav>
   );
 };

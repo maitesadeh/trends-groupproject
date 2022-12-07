@@ -15,8 +15,8 @@ export default function Home() {
       <Nav></Nav>
       <div className={styles.home}>
         <div>
-          <h1>Cornell Photography</h1>
-          <Button name="Sign In" />
+          <h1>Cornell Photography</h1>        
+          <Button name="Sign In"/>
         </div>
       </div>
     </div>
