@@ -14,6 +14,9 @@ const Nav = () => {
         <div className="item">
           <Link href="favorites">Favorites</Link>
         </div>
+        <div className="item">
+          <Link href="form">Form</Link>
+        </div>
       </div>
     </nav>
   );

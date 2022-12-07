@@ -1,0 +1,8 @@
+.faves {
+    color: rgb(172, 2, 2);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7em;
+}

@@ -1,7 +1,8 @@
 .navbar {
   width: 100%;
   height: 70px;
-  background: rgba(189, 110, 115, 0.85);
+  /* background: rgba(189, 110, 115, 0.85); */
+  background: #981b23bf;
   position: fixed;
   top: 0;
   left: 0;
