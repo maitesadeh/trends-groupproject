@@ -12,13 +12,19 @@
 }
 
 .home h1 {
-  font-size: 6.5rem;
+  font-size: 7.5rem;
   font-style: italic;
   color: white;
   /* background: rgba(189, 110, 115, 0.75); */
   background: #981b23bf;
   padding: 30px;
-  /* border-radius: 30px; */
+  border-radius: 30px;
   box-shadow: rgba(50, 50, 93, 0.5) 0px 2px 9px -1px,
-  rgba(0, 0, 0, 0.3) 0px 3px 3px -1px;
+    rgba(0, 0, 0, 0.3) 0px 3px 3px -1px;
+}
+
+@media screen and (max-width: 600px) {
+  .home h1 {
+    /* font-size: 2.5rem; */
+  }
 }
