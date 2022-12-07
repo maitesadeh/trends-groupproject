@@ -11,6 +11,10 @@ const Nav = () => {
         <div className="item">
           <Link href="gallery"> Gallery</Link>
         </div>
+
+        <div className="item">
+          <Link href="myphotos">My Photos</Link>
+        </div>
         <div className="item">
           <Link href="favorites">Favorites</Link>
         </div>
