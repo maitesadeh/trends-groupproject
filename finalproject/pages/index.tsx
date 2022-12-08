@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 import Button from "../public/UI/Button";
 import Nav from "../public/UI/Nav";
-import { app, db } from "../public/firebase";
+import { app, db } from "../util/firebase";
 import {
   onSnapshot,
   query,
