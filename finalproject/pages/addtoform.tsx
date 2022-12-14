@@ -49,7 +49,7 @@ const AddToForm = () => {
         <input type="file" required onChange={(e) => getImage(e)}></input>
       </div>
 
-      <button className={styles.form} id={styles.submit}>
+      <button className={styles.form} id={styles.btn}>
         Submit
       </button>
     </form>
