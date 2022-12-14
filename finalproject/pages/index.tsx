@@ -100,7 +100,7 @@ export default function Home() {
         <div>
           <h1>Cornell Photography</h1>
           <Button name="Sign In With Google" onClick={signInWithGoogle} />
-          {isSignedIn ? <p>Hello {user.username}</p> : <p>Havent signed In</p>}
+          {isSignedIn ? <p>Hello {user.username}</p> : <p>Haven't signed In</p>}
           {/* <Button name="Sign Out" onClick={signOutFromApp} /> */}
         </div>
       </div>
