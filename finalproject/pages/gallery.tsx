@@ -31,7 +31,8 @@ const Gallery = () => {
     url();
   }, []);
 
-  console.log(imageList);
+  let galleryImages = [...new Set(imageList)];
+  console.log(galleryImages);
 
   //   useEffect(() => {
   //     const fetchImages = async () => {
@@ -297,19 +298,18 @@ const Gallery = () => {
         </a>
       </div> */}
       <div className={styles.gallery}>
-        {imageList.map((url) => {
-        return (
-          // eslint-disable-next-line react/jsx-key
-          <div className={styles.img} key={url}>
-            <img src={url} alt="askjasa" width="400px"></img>
-            <div className={styles.like}>
-              <button>Love</button>
+        {galleryImages.map((url) => {
+          return (
+            // eslint-disable-next-line react/jsx-key
+            <div className={styles.img} key={url}>
+              <img src={url} alt="askjasa" width="400px"></img>
+              <div className={styles.like}>
+                <button>Love</button>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
       </div>
-      
     </section>
   );
 };

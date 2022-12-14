@@ -21,7 +21,6 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { FirebaseError } from "firebase/app";
 
 export default function Home() {
   const [user, setUser] = useState({
@@ -43,13 +42,11 @@ export default function Home() {
         // setUser({ ...user, username: name, picture: profilePic });
 
         setIsSignedIn(true);
-        console.log(name);
 
         const taskQuery = query(
           collection(db, "firstuser"),
           where("username", "==", name)
         );
-        console.log(taskQuery);
       })
       .catch((error) => alert(error));
   };
@@ -58,12 +55,12 @@ export default function Home() {
     // auth.signOut();q
     // signOut(auth).then((res) => console.log(res));
   };
-  if (isSignedIn) {
-    const userRef = collection(db, "firstuser");
+  // if (isSignedIn) {
+  //   const userRef = collection(db, "firstuser");
 
-    addDoc(userRef, user).then(() => null);
-    console.log(user);
-  }
+  //   addDoc(userRef, user).then(() => null);
+
+  // }
 
   const userRef = collection(db, "firstuser");
   const userQuery = query(userRef);
@@ -100,7 +97,11 @@ export default function Home() {
         <div>
           <h1>Cornell Photography</h1>
           <Button name="Sign In With Google" onClick={signInWithGoogle} />
-          {isSignedIn ? <p>Hello {user.username}</p> : <p>Haven't signed In</p>}
+          {isSignedIn ? (
+            <p>Hello {user.username}</p>
+          ) : (
+            <p>You have not Signed In yet</p>
+          )}
           {/* <Button name="Sign Out" onClick={signOutFromApp} /> */}
         </div>
       </div>
