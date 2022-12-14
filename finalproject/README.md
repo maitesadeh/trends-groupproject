@@ -32,3 +32,20 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Group Members
+
+Desmond Ababio (dna 35)
+Uyen Hoang (umh4)
+Maïté Sadeh (mns56)
+
+## Project Description
+This project allows Cornell students to log into their email and add pictures they take around Cornell campus to the gallery. There is a login but on the landing page, and they will see the images they save and post. 
+
+## Deployed Site
+
+
+
+## Github Repo
+
+![Github Repo Link](https://github.com/maitesadeh/trends-groupproject.git)
