@@ -147,7 +147,9 @@
 	margin-top: 50px;
 	text-align: center;
   }
-  
+
+
+/*  citation for gallery code: https://www.digitalocean.com/community/tutorials/how-to-build-an-infinite-scroll-image-gallery-with-react-css-grid-and-unsplash */
 .gallery {
 	display: grid;
 	grid-gap: 4em;
