@@ -7,14 +7,18 @@
     margin-top: 7em;
 }
 
-.form {
-    margin-left: 2em;
-    margin-top: 1em;
+.entireForm {
+    background-color:#8fc5fe;
+    padding-left: 5em;
+    padding-bottom: 3em;
+    border-radius: 4em;
+    margin: 3em;
 }
 
 .form h2 {
     margin-bottom: 0.5em;
     font-size: 22px;
+    padding-top: 2em;
 }
 
 #btn {
