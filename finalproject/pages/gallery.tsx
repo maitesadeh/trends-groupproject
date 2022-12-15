@@ -1,22 +1,16 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import Nav from "../public/UI/Nav";
+
 import styles from "../styles/Gallery.module.css";
-import {
-  getDownloadURL,
-  getStorage,
-  listAll,
-  ref,
-  uploadBytes,
-} from "firebase/storage";
+import { getDownloadURL, getStorage, listAll, ref } from "firebase/storage";
 import { app } from "../public/firebase";
 
-const Gallery = () => {
+const Gallery = (props: { isSignedIn: boolean }) => {
   const [imageList, setImageList] = useState([]);
 
   const storage = getStorage(app);
 
-  const imageListRef = ref(storage, "Desmond Ababio/");
+  const imageListRef = ref(storage, "allImages/");
   useEffect(() => {
     const url = async () => {
       listAll(imageListRef).then((response) => {
@@ -32,7 +26,6 @@ const Gallery = () => {
   }, []);
 
   let galleryImages = [...new Set(imageList)];
-  console.log(galleryImages);
 
   //   useEffect(() => {
   //     const fetchImages = async () => {
@@ -53,7 +46,6 @@ const Gallery = () => {
 
   return (
     <section className={styles.main}>
-      <Nav></Nav>
       <h2 className={styles.wel}>Welcome to the Gallery</h2>
       {/* <div className={styles.catalog}>
         <a href={"/detail"}>
@@ -297,19 +289,21 @@ const Gallery = () => {
           </div>
         </a>
       </div> */}
-      <div className={styles.gallery}>
-        {galleryImages.map((url) => {
-          return (
-            // eslint-disable-next-line react/jsx-key
-            <div className={styles.img} key={url}>
-              <img src={url} alt="askjasa" width="400px"></img>
-              <div className={styles.like}>
-                <button>Love</button>
+      {props.isSignedIn && (
+        <div className={styles.gallery}>
+          {galleryImages.map((url) => {
+            return (
+              // eslint-disable-next-line react/jsx-key
+              <div className={styles.img} key={url}>
+                <img src={url} alt="askjasa" width="400px"></img>
+                <div className={styles.like}>
+                  <button>Love</button>
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      )}
     </section>
   );
 };

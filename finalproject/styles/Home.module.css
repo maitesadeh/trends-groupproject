@@ -31,9 +31,10 @@
   padding-bottom: 5px;
   border-radius: 2em;
 }
-
-@media screen and (max-width: 600px) {
-  .home h1 {
-    /* font-size: 2.5rem; */
-  }
+.homeUser {
+  font-size: 5rem;
+  color: white;
+  font-style: italic;
+  background-color: #981b23bf;
+  padding: 1rem;
 }
