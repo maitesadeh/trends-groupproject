@@ -31,26 +31,15 @@ const AddToForm = (props) => {
       <div className={styles.faves}>
         <h1>Add your photo here!</h1>
       </div>
+
       <div className={styles.entireForm}>
-        {/* <div className={styles.form}>
-          <h2>Photographer</h2>
-          <textarea></textarea>
-        </div> */}
-        <div className={styles.form}>
-          <label htmlFor="Photographer">
-            <h2>Photographer:</h2>{" "}
-          </label>
-          <input required></input>
-        </div>
-
-        <div className={styles.form}>
-          <h2>Description</h2>
-          <textarea></textarea>
-        </div>
-
         <div className={styles.form}>
           <h2>Image</h2>
           <input type="file" required onChange={(e) => getImage(e)}></input>
+        </div>
+        <div className={styles.form}>
+          <h2>Description</h2>
+          <textarea></textarea>
         </div>
 
         <button className={styles.form} id={styles.btn}>

@@ -297,7 +297,7 @@ const Gallery = (props: { isSignedIn: boolean }) => {
               <div className={styles.img} key={url}>
                 <img src={url} alt="askjasa" width="400px"></img>
                 <div className={styles.like}>
-                  <button>Love</button>
+                  <button>Add to Favorites</button>
                 </div>
               </div>
             );

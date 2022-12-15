@@ -3,7 +3,7 @@ import { useContext } from "react";
 import styles from "./Nav.module.css";
 import userContext from "./UserContext";
 
-const Nav = (props) => {
+const Nav = () => {
   const ctx = useContext(userContext);
 
   return (
