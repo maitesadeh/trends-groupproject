@@ -10,7 +10,7 @@ const MyPhotos = (props: { user: { username: String } }) => {
   const storage = getStorage(app);
 
   const imageListRef = ref(storage, `${props.user.username}/`);
-  console.log(imageListRef);
+
   useEffect(() => {
     const url = async () => {
       listAll(imageListRef).then((response) => {

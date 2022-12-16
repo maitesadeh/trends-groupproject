@@ -23,20 +23,22 @@ import {
   signOut,
 } from "firebase/auth";
 import UserContext from "../public/UI/UserContext";
+import Favorites from "./favorites";
 
 export default function App({ Component, pageProps }: AppProps) {
   // const userContext = useContext(UserContext);
   const [user, setUser] = useState({
     username: "",
     picture: "",
-    images: [],
     favorites: [],
+
     isSignedIn: false,
   });
   const [isSignedIn, setIsSignedIn] = useState(false);
   // const auth = getAuth(app);
 
   // const provider = new GoogleAuthProvider();
+
   const signInWithGoogle = () => {
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
@@ -46,8 +48,6 @@ export default function App({ Component, pageProps }: AppProps) {
         const profilePic = result.user.photoURL + "";
         setIsSignedIn(true);
 
-        console.log(" signed in");
-
         setUser({
           ...user,
           username: name,
@@ -55,10 +55,10 @@ export default function App({ Component, pageProps }: AppProps) {
           isSignedIn: !isSignedIn,
         });
 
-        const taskQuery = query(
-          collection(db, "firstuser"),
-          where("username", "==", name)
-        );
+        // const taskQuery = query(
+        //   collection(db, "firstuser"),
+        //   where("username", "==", name)
+        // );
       })
       .catch((error) => alert(error));
   };
@@ -71,6 +71,7 @@ export default function App({ Component, pageProps }: AppProps) {
         signIn={signInWithGoogle}
         isSignedIn={isSignedIn}
         user={user}
+        changeuser={setUser}
       />
       <h1></h1>
     </UserContext.Provider>

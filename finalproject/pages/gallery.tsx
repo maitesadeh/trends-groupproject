@@ -3,15 +3,24 @@ import React, { useEffect, useState } from "react";
 
 import styles from "../styles/Gallery.module.css";
 import { getDownloadURL, getStorage, listAll, ref } from "firebase/storage";
-import { app } from "../public/firebase";
+import { app, db } from "../public/firebase";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  setDoc,
+} from "firebase/firestore";
 
-const Gallery = (props: { isSignedIn: boolean }) => {
+const Gallery = (props) => {
   const [imageList, setImageList] = useState([]);
 
-  const storage = getStorage(app);
-
-  const imageListRef = ref(storage, "allImages/");
   useEffect(() => {
+    const storage = getStorage(app);
+
+    const imageListRef = ref(storage, "allImages/");
     const url = async () => {
       listAll(imageListRef).then((response) => {
         response.items.forEach((item) =>
@@ -26,6 +35,31 @@ const Gallery = (props: { isSignedIn: boolean }) => {
   }, []);
 
   let galleryImages = [...new Set(imageList)];
+
+  const handleAdd = async (url: String) => {
+    props.changeuser({
+      ...props.user,
+
+      favorites: [...new Set(props.user.favorites), url],
+      // favorites: [...array, url],
+    });
+
+    // const taskQuery = query(collection(db, "trends"));
+    // getDocs(taskQuery).then((snapshot) => {
+    //   const data = snapshot.docs.filter(
+    //     (doc) => doc.data().username == "Desmond Ababio"
+    //   );
+    //   console.log(data);
+    // });
+    const docRef = doc(db, "trends", props.user.username);
+    setDoc(docRef, props.user);
+
+    // addDoc(docRef, props.user)
+    // const docSnap = getDoc(docRef);
+
+    // console.log((await docSnap).data());
+    // setDoc(doc(taskRef), props.user).then(() => null);
+  };
 
   //   useEffect(() => {
   //     const fetchImages = async () => {
@@ -296,8 +330,14 @@ const Gallery = (props: { isSignedIn: boolean }) => {
               // eslint-disable-next-line react/jsx-key
               <div className={styles.img} key={url}>
                 <img src={url} alt="askjasa" width="400px"></img>
+
                 <div className={styles.like}>
-                  <button>Add to Favorites</button>
+                  <button
+                    onClick={() => handleAdd(url)}
+                    className={styles.button}
+                  >
+                    Add to Favorites
+                  </button>
                 </div>
               </div>
             );
