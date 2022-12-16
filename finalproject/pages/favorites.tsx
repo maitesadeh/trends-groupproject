@@ -1,20 +1,25 @@
 import { useEffect, useState } from "react";
 import Nav from "../public/UI/Nav";
 import styles from "../styles/Favorites.module.css";
-import AddToForm from "./addtoform";
+import AddToForm from "../public/UI/addtoform";
 import { db, app } from "../util/firebase";
 import { v4 } from "uuid";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
-const Favorites = (props) => {
+const Favorites = (props: {
+  user: { username: string; favoriteNum: number };
+  changeuser: (arg0: any) => void;
+  isSignedIn: unknown;
+}) => {
   const [userfavorites, setFavorites] = useState([]);
 
   const handleRemove = async (url: string) => {
-    console.log(url);
     const docRef = await doc(db, "trends", props.user.username);
     const docSnap = await getDoc(docRef);
 
-    const array = docSnap.data().favorites.filter((doc) => "" + doc != url);
+    const array = docSnap
+      .data()
+      .favorites.filter((doc: string) => "" + doc != url);
 
     setFavorites([...new Set(array)]);
 

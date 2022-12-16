@@ -6,7 +6,11 @@ import { getDownloadURL, getStorage, listAll, ref } from "firebase/storage";
 import { app, db } from "../public/firebase";
 import { doc, setDoc } from "firebase/firestore";
 
-const Gallery = (props) => {
+const Gallery = (props: {
+  changeuser: (arg0: Object) => void;
+  user: { favorites: Iterable<unknown> | null | undefined; username: string };
+  isSignedIn: boolean;
+}) => {
   const [imageList, setImageList] = useState([]);
 
   useEffect(() => {

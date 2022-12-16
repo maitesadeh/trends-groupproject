@@ -3,7 +3,7 @@ import React, { useEffect, useState, useContext } from "react";
 import styles from "../styles/Home.module.css";
 import Button from "../public/UI/Button";
 
-export default function Home(props) {
+export default function Home(props: Object) {
   return (
     <div className={styles.container}>
       <Head>

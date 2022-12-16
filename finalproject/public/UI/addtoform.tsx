@@ -1,8 +1,8 @@
-import Button from "../public/UI/Button";
-import styles from "../styles/Favorites.module.css";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
-import { app } from "../public/firebase";
+import { app } from "../firebase";
 import { useState } from "react";
+
+import styles from "../../styles/Favorites.module.css";
 
 import { v4 } from "uuid";
 

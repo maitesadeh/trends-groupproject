@@ -23,7 +23,7 @@ const MyPhotos = (props: { user: { username: String } }) => {
     };
 
     url();
-  }, []);
+  }, [imageListRef]);
 
   let galleryImages = [...new Set(imageList)];
 

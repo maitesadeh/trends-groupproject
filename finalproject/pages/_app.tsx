@@ -3,30 +3,12 @@ import type { AppProps } from "next/app";
 import { useState } from "react";
 import Nav from "../public/UI/Nav";
 
-import { db, app } from "../util/firebase";
+import { app } from "../util/firebase";
 
-import {
-  onSnapshot,
-  query,
-  collection,
-  getFirestore,
-  where,
-  getDoc,
-  getDocs,
-  addDoc,
-} from "firebase/firestore";
-
-import {
-  getAuth,
-  GoogleAuthProvider,
-  signInWithPopup,
-  signOut,
-} from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import UserContext from "../public/UI/UserContext";
-import Favorites from "./favorites";
 
 export default function App({ Component, pageProps }: AppProps) {
-  // const userContext = useContext(UserContext);
   const [user, setUser] = useState({
     username: "",
     picture: "",
@@ -35,9 +17,6 @@ export default function App({ Component, pageProps }: AppProps) {
     isSignedIn: false,
   });
   const [isSignedIn, setIsSignedIn] = useState(false);
-  // const auth = getAuth(app);
-
-  // const provider = new GoogleAuthProvider();
 
   const signInWithGoogle = () => {
     const auth = getAuth(app);
@@ -54,18 +33,13 @@ export default function App({ Component, pageProps }: AppProps) {
           picture: profilePic,
           isSignedIn: !isSignedIn,
         });
-
-        // const taskQuery = query(
-        //   collection(db, "firstuser"),
-        //   where("username", "==", name)
-        // );
       })
       .catch((error) => alert(error));
   };
 
   return (
     <UserContext.Provider value={user}>
-      <Nav isSignedIn={isSignedIn} />
+      <Nav />
       <Component
         {...pageProps}
         signIn={signInWithGoogle}
