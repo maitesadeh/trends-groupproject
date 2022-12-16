@@ -4,18 +4,7 @@ import styles from "../styles/Favorites.module.css";
 import AddToForm from "./addtoform";
 import { db, app } from "../util/firebase";
 import { v4 } from "uuid";
-import {
-  onSnapshot,
-  query,
-  collection,
-  getFirestore,
-  where,
-  getDoc,
-  getDocs,
-  addDoc,
-  doc,
-  setDoc,
-} from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 const Favorites = (props) => {
   const [userfavorites, setFavorites] = useState([]);
@@ -26,7 +15,7 @@ const Favorites = (props) => {
     const docSnap = await getDoc(docRef);
 
     const array = docSnap.data().favorites.filter((doc) => "" + doc != url);
-    // docSnap.data().favorites = array;
+
     setFavorites([...new Set(array)]);
 
     props.changeuser({
@@ -40,12 +29,6 @@ const Favorites = (props) => {
 
   useEffect(() => {
     if (props.isSignedIn) {
-      // getDocs(taskQuery).then((snap) => {
-      //   const data = snap.docs.filter(
-      //     (doc) => doc.data().username == props.user.username
-      //   );
-      //   console.log(data);
-      // });
       const fetchData = async () => {
         const docRef = await doc(db, "trends", props.user.username);
         const docSnap = await getDoc(docRef);
@@ -62,14 +45,11 @@ const Favorites = (props) => {
 
   return (
     <div>
-      {/* <Nav></Nav> */}
-      <div className={styles.faves}>
-        <h1>Your Favorites ❣</h1>
+      <h1>Your Favorites ❣</h1>
+      <div className={styles.favorites}>
         {userfavorites.map((url) => (
           <div key={v4()} className={styles.imagediv}>
-            <div>
-              <img src={url} alt="hgas"></img>
-            </div>
+            <img src={url} alt="hgas"></img>
             <button onClick={() => handleRemove(url)}>
               Remove from favorites
             </button>
